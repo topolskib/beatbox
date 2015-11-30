@@ -24,3 +24,6 @@ Program obsluguje rowniez czytanie archiwów zip. Warunek - jego struktura to ar
 
 5. Bonus
 Dla posiadaczy pakietu pyglet - ./beatbox.py drum_machine uruchamia maly bonus. 
+
+6. Problemy technczne
+W razie nie działania programu odsyłam do obrazkowego faq ;)
