@@ -1,0 +1,9 @@
+global dzw
+dzw=dzwiek.sin_custom(f,T,0.02,0.1)
+t=np.linspace(0,T,T*44100)
+S4=signal.sawtooth(2 * np.pi * f * t)
+S3=signal.square(2 * np.pi * f * t)
+dzw=0.1*S4 + 0.5*S3
+dzw*=0.6
+dzw = np.repeat(dzw,2).reshape(len(dzw),2)
+dzw = dzw/np.amax(dzw)

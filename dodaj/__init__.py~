@@ -1,0 +1,2 @@
+from .modul1 import *
+del modul1

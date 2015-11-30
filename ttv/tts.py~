@@ -1,0 +1,24 @@
+import sys
+import dodaj
+import numpy as np
+import scipy.io.wavfile
+from scipy import signal
+
+def table_to_wav(dir):
+    f = open('./' + dir + '/song.txt', 'r')
+    data = f.readlines()
+    t=0
+    output = np.zeros(1)
+    for lines in data:
+        linia = lines.split()
+        for i in range(0,len(linia)):
+            if linia[i]!="--":
+                fs,sample = scipy.io.wavfile.read('./' + dir +  '/sample' + linia[i] + ".wav")
+                if len(np.shape(sample))==2:
+                    sample=np.mean(sample,axis=1)
+                output = dodaj.dodaj_dzwiek(output, sample, t)
+        t+= (60/bpm)/2 #gramy osemki
+    f.close()   
+    scipy.io.wavfile.write(dir +'.wav', fs, np.int16(output/max(abs(output))*32767))  
+    print("Pomyslnie utworzono plik " + dir +".wav")
+

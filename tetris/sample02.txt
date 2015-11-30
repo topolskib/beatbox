@@ -1,0 +1,7 @@
+{
+    'type':["sq"],
+	'attack':[0],
+    'decay':[0.01],
+	'coef':[1],
+	'cutoff':0
+}

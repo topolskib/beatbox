@@ -1,0 +1,18 @@
+import numpy as np
+import scipy.io.wavfile
+from scipy import signal
+
+def dodaj_dzwiek(old, new, delay):
+    l_old = np.shape(old)[0]
+    l_new = np.shape(new)[0]
+    l_delay = int(delay*44100)
+    if l_old <=l_delay + l_new:
+        output = np.zeros((l_delay + l_new,2))
+        output = np.vstack((old,np.zeros((l_delay + l_new - l_old,2)))) + np.vstack((np.zeros((l_delay,2)), new))
+        return output
+    elif l_old >=l_delay + l_new:
+        old += np.vstack(((np.zeros((l_delay,2)), new, np.zeros((l_old - l_new -l_delay,2)))))
+        return old
+    
+    
+    

@@ -1,0 +1,6 @@
+global dzw
+dzw=dzwiek.sq_custom(f,T,0,0.7)
+dzw+=dzwiek.sq_custom(f,T,0,0.8)
+dzw+=dzwiek.sq_custom(f,T,0,0.9)
+dzw = np.repeat(dzw,2).reshape(len(dzw),2)
+dzw = dzw/np.amax(dzw)
